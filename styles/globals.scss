@@ -1,0 +1,17 @@
+@import 'variaveis.scss';
+* {
+  font-family: 'biennale regular';
+  font-size: 16px;
+}
+html,
+body,
+#_next {
+  height: 100%;
+}
+
+@import '../public/fonts/fonts.scss';
+@import '../componentes/home/home.scss';
+@import '../pages/login/login.scss';
+@import '../componentes/header/header.scss';
+@import '../componentes/cardCarro/cardCarro.scss';
+@import '../componentes/inputPesquisa/inputPesquisa.scss';

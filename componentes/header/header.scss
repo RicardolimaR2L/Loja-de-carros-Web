@@ -1,0 +1,54 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  background-color: white;
+
+  .logo-container  {
+    width: 60px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .navegacao-container {
+    ul {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $desktopBreakpoint) {
+    .logo-container span {
+      width: 100%;
+      height: auto;
+      font-family: $fontBold;
+      font-size: 32px;
+      padding-left: 25px;
+    }
+
+    .navegacao-container {
+      width: 30%;
+      ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        li {
+          font-size: 16px;
+          font-family: $fontRegular;
+          cursor: pointer;
+          color: $corPrimaria2;
+          &:hover {
+            color: $corPrimaria1;
+          }
+        }
+      }
+    }
+  }
+}
