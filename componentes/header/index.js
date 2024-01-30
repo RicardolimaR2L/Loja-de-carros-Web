@@ -1,38 +1,61 @@
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import InputPesquisa from '../../componentes/inputPesquisa'
 import logoCars from '../../public/imagens/logo-BuyCars.jpeg'
+import { useState, useEffect } from 'react'
 
 export default function Header() {
+  const [nome, setNome] = useState();
+
+
+  useEffect(() => {
+    const nomeSalvo = localStorage.getItem('nome');
+
+    if (nomeSalvo) {
+      setNome(nomeSalvo)
+    }
+
+  }, [])
   const router = useRouter()
 
-  const irParaModelos = () => {
-    router.push('/modelos')
-  }
-  const irParaSobre = () => {
-    router.push('/sobre')
+  
+  const cadastrarCarro = () => {
+    router.push('/cadastro')
   }
   const irParaLogin = () => {
     router.push('/login')
   }
+  const irparaHome = () => {
+    router.push('/')
+  }
   return (
     <>
       <div className="header-container">
-        <div className="logo-container">
+        <div className="logo-container" onClick={irparaHome}>
           <Image src={logoCars} alt="logo do loja" />
         </div>
         <div className="navegacao-container">
-          <nav>
+          {!nome ? <nav>
             <ul>
-              <li onClick={irParaSobre}>Sobre nós</li>
-              <li onClick={irParaModelos}>Modelos</li>
+              <li>Sobre nós</li>
+              <li >Modelos</li>
               <li onClick={irParaLogin}>Login</li>
             </ul>
-          </nav>
+
+          </nav> :
+            <ul>
+              <li>Sobre nós</li>
+              <li onClick={cadastrarCarro}>Cadastrar-Carros</li>
+              <li className='nome-usuario'>{nome}</li>
+            </ul>
+
+          }
+
         </div>
+      
       </div>
     </>
   )
 }
 
-//aqui da para criar uma renderizaçaõ condicioanl pegando o user id e verificando se ele é admin pelo nivel e mostrar cada menu de maneira diferente
-// Se o user for admin ele vaiter acesso a tela de excluir carro e todas as outrs operações do sistema
+

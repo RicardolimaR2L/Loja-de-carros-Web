@@ -6,7 +6,7 @@ import CarApiService from '../../services/CarService'
 
 const carroApiService = new CarApiService()
 
-export default function Home({ tipo, texto, modelo, preco }) {
+export default function Home({ tipo, texto }) {
   const [carroPesquisado, setCarroPesquisado] = useState('')
   const [carroEncontrado, setCarroEncontrado] = useState('')
   const aoPesquisar = e => {
@@ -18,7 +18,6 @@ export default function Home({ tipo, texto, modelo, preco }) {
       try {
         const response = await carroApiService.get('/endpointCarroPublico')
         setCarroEncontrado(response)
-        console.log('Lista de carros públicos:', response)
       } catch (error) {
         console.error('Erro ao buscar carros públicos:', error)
       }

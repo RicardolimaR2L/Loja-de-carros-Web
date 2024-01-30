@@ -1,6 +1,7 @@
 .container-card {
   display: flex;
   flex-wrap: wrap;
+
   .card {
     width: 98%;
     height: 345px;
@@ -12,21 +13,114 @@
     margin-top: 10px;
     border-radius: 8px;
 
+    .acoes-card {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding-top: 5px;
+      position: relative;
+      z-index: 1;
+
+    }
+
+    .modal {
+      width: 300px;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: absolute;
+      background-color: $branco;
+      border: 1px solid $corPrimaria1;
+      z-index: +3;
+      border-radius: 10px;
+      padding-left: 15px;
+      
+      span{
+        font-family: $fontBold;
+        font-size: 18px;
+      }
+      .fechar-modal{
+       width: 270px;
+       height: 15px;
+       display: flex;
+       justify-content:flex-end;
+        position:relative;
+        color: red;
+        cursor: pointer;
+      
+      }
+
+
+      .div-label .required {
+        content: "*";
+        color: red;
+      }
+
+
+      input {
+        height: 100%;
+        width: 270px;
+        border-radius: 5px;
+        border: 1px solid $corPrimaria3;
+        outline: none;
+
+        cursor: pointer;
+      }
+
+      .upload-foto {
+        height: 25px;
+        width: 50%;
+        cursor: pointer;
+      }
+
+      .botoes {
+        width: 200px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding-left: 45px;
+        .botao-padrao{
+          width: 100%;
+          height: 25px;
+          margin-top: 30px;
+          color: $branco;
+          background-color: $corPrimaria1;
+          font-family: $fontLight;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
     .foto-do-carro {
       width: 100%;
       display: flex;
       justify-content: center;
+      position: relative;
+
+      z-index: -1;
+      margin-top: -25px;
+
       img {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
       }
     }
+
     .informacoes {
       width: 100%;
       padding-left: 10px;
       display: flex;
       justify-content: flex-start;
       flex-direction: column;
+
       .linha-divisoria {
         width: 97%;
         height: 1px;
@@ -40,17 +134,20 @@
         justify-content: flex-start;
         gap: 10px;
       }
+
       .preco {
         display: flex;
         justify-content: flex-start;
         font-family: $fontBold;
         font-size: 18px;
         color: black;
+
         strong {
           font-size: 25px;
         }
       }
     }
+
     @media screen and (min-width: $desktopBreakpoint) {
       .card {
         width: 300px;

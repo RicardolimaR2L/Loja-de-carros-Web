@@ -1,14 +1,55 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Input from '../../componentes/input/index'
 import Botao from '../../componentes/botao/index'
 import emailIcon from '../../public/imagens/envelope.svg'
 import logoCars from '../../public/imagens/logo-BuyCars.jpeg'
 import senhaIcon from '../../public/imagens/chave.svg'
+import { validarEmail, validarSenha } from '../../validadores-login/validadores'
+import UsuarioService from '../../services/UsuarioServices'
+
+
+const usuarioService = new UsuarioService();
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [senha, setsenha] = useState('')
+  const [estaSubmetendo, setEstasubmetendo] = useState(false)
+  const router = useRouter()
+
+ 
+
+  const validarFormulario = () => {
+    return (
+      validarEmail(email)
+      && validarSenha(senha)
+    );
+  };
+
+  const aoSubmeter = async (e) => {
+    e.preventDefault();
+    if (!validarFormulario()) {
+      return;
+    }
+    setEstasubmetendo(true)
+    try {
+
+      await usuarioService.login({
+        login: email,
+        senha
+      })
+      router.push('/')
+    } catch (e) {
+      console.log(e)
+      alert('erro ao realizar o login. ' + e.response?.data?.erro);
+    }
+
+    setEstasubmetendo(false)
+  }
+
+
+
 
   return (
     <section className={'login-container'}>
@@ -16,7 +57,7 @@ export default function Login() {
         <Image src={logoCars} alt="logo do loja" />
       </div>
       <div className="formulario-login">
-        <form onSubmit={''}>
+        <form onSubmit={aoSubmeter}>
           <Input
             imagem={emailIcon}
             texto="E-mail"
@@ -32,7 +73,8 @@ export default function Login() {
             valor={senha}
           />
           <div className="botao-container">
-            <Botao texto="Login" tipo="submit" />
+            <Botao
+              texto="Login" tipo="submit" desabilitado={!validarFormulario() || estaSubmetendo}/>
           </div>
         </form>
       </div>

@@ -8,9 +8,7 @@ export default function InputPesquisa({
   aoAlterarValor,
   onChange
 }) {
-  const pesquisarCarro = () => {
-    console.log('clicou aqui')
-  }
+
 
   return (
     <div className="inputPesquisa-container">
@@ -23,7 +21,6 @@ export default function InputPesquisa({
         />
       </div>
       <Image
-        onClick={pesquisarCarro}
         src={pesquisaIcon}
         alt="icone de pesquisa"
         className="icone-pesquisa"

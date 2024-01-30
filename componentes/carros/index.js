@@ -22,6 +22,7 @@ export default function Carros({ carro }) {
             src={carro.foto}
             altText={'card Carro'}
             marca={carro.marca}
+            nome={carro.nome}
             modelo={carro.modelo}
             preco={carro.preco}
           />
