@@ -1,2 +1,80 @@
-.container-cadastro{
-    background-color: red;}
+.container-cadastro {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .container-principal {
+        width: 350px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 1px solid $corPrimaria1;
+        border-radius: 10px;
+        margin-top: 15px;
+
+        span{
+            font-family: $fontBold;
+            font-size: 18px;
+            
+            }
+
+        .formulario-cadastro {
+            width: 320px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            input {
+                width: 320px;
+                height: 25px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                border: 1px solid $corPrimaria1;
+                border-radius: 5px;
+            }
+
+            .div-label .required,
+            .upload-foto .required {
+                content: "*";
+                color: red;
+            }
+            
+            .upload-foto {
+                width: 325px;
+                margin-top: 10px;
+                height: 40px;
+                cursor: pointer;
+                input{
+                    border:none;
+
+                }
+            }
+        }
+            .botoes{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                margin-top: 25px;
+                .botao-padrao {
+                    width: 70%;
+                    height: 30px;
+                    color: $branco;
+                    background-color: $corPrimaria1;
+                    font-family: $fontRegular;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                  }
+            }
+
+    }
+
+}

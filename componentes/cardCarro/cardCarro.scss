@@ -38,24 +38,26 @@
       z-index: +3;
       border-radius: 10px;
       padding-left: 15px;
-      
-      span{
+
+      span {
         font-family: $fontBold;
         font-size: 18px;
       }
-      .fechar-modal{
-       width: 270px;
-       height: 15px;
-       display: flex;
-       justify-content:flex-end;
-        position:relative;
+
+      .fechar-modal {
+        width: 270px;
+        height: 15px;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
         color: red;
         cursor: pointer;
-      
+
       }
 
 
-      .div-label .required {
+      .div-label .required,
+      .upload-foto .required {
         content: "*";
         color: red;
       }
@@ -85,7 +87,8 @@
         justify-content: center;
         gap: 15px;
         padding-left: 45px;
-        .botao-padrao{
+
+        .botao-padrao {
           width: 100%;
           height: 25px;
           margin-top: 30px;

@@ -4,9 +4,7 @@ import pesquisaIcon from '../../public/imagens/iconePesquisa.svg'
 export default function InputPesquisa({
   tipo,
   texto,
-  valor = '',
-  aoAlterarValor,
-  onChange
+ 
 }) {
 
 
@@ -16,8 +14,7 @@ export default function InputPesquisa({
         <input
           type={tipo}
           placeholder={' Buscar por carros '}
-          value={valor}
-          onChange={aoAlterarValor}
+         
         />
       </div>
       <Image

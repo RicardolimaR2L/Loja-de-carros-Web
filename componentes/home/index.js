@@ -4,10 +4,9 @@ import Carros from '../../componentes/carros'
 import { useEffect, useState } from 'react'
 import CarApiService from '../../services/CarService'
 
-const carroApiService = new CarApiService()
+const carApiService = new CarApiService()
 
 export default function Home({ tipo, texto }) {
-  const [carroPesquisado, setCarroPesquisado] = useState('')
   const [carroEncontrado, setCarroEncontrado] = useState('')
   const aoPesquisar = e => {
     setCarroPesquisado(e.target.value)
@@ -16,7 +15,7 @@ export default function Home({ tipo, texto }) {
   useEffect(() => {
     async function getCarros() {
       try {
-        const response = await carroApiService.get('/endpointCarroPublico')
+        const response = await carApiService.get('/CarrosPublicos')
         setCarroEncontrado(response)
       } catch (error) {
         console.error('Erro ao buscar carros públicos:', error)
@@ -29,12 +28,7 @@ export default function Home({ tipo, texto }) {
     <>
       <div className="home-container">
         <Header />
-        <InputPesquisa
-          type={tipo}
-          placeholder={texto}
-          valor={carroPesquisado}
-          aoAlterarValor={aoPesquisar}
-        />
+        <InputPesquisa/>
         <div className="container-principal">
           <Carros
           carro={carroEncontrado} />

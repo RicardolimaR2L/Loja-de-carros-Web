@@ -9,14 +9,18 @@ export default function Carros({ carro }) {
       const listaDeCarros = [...carro.data];
       listaDeCarros.sort((a, b) => a.preco - b.preco);
       setCarrosOrdenados(listaDeCarros);
+   
     }
+
   }, [carro]);
+
 
   return (
     <div className="container-carros">
       <div className="grid-carros">
-        {carrosOrdenados.map((carro, index) => ( 
+        {carrosOrdenados.map((carro, index) => (
           <CardCarro
+            id={carro._id}
             key={index}
             className="item-carro"
             src={carro.foto}

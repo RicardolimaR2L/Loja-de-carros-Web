@@ -1,58 +1,65 @@
-import Image from 'next/image';
-import { useState, useEffect } from 'react'
-import InputPesquisa from '../../componentes/inputPesquisa';
+import { useState } from 'react'
 import InputModal from '../../componentes/inputModal';
 import Botao from '../../componentes/botao';
 import { useRouter } from 'next/router';
 import Header from '../../componentes/header';
+import CarApiService from '../../services/CarService';
+import InputPesquisa from '../../componentes/inputPesquisa';
+
+const carApiService = new CarApiService();
 
 
-export default function CardCarro({ src, alt, marca, nome, preco, modelo }) {
-    const [token, setToken] = useState();
-    const [mostrarModal, setMostrarModal] = useState(false)
-    const [nomeCarro, setNomeCarro] = useState(nome)
-    const [marcaCarro, setMarcaCarro] = useState(marca)
-    const [modeloCarro, setModeloCarro] = useState(modelo)
-    const [precoCarro, setPrecoCarro] = useState(preco)
+export default function cadastro({ id, marca, nome, preco, modelo }) {
+
+    const [nomeCarro, setNomeCarro] = useState('')
+    const [marcaCarro, setMarcaCarro] = useState('')
+    const [modeloCarro, setModeloCarro] = useState('')
+    const [precoCarro, setPrecoCarro] = useState('')
+    const [image, setImagem] = useState('')
 
     const router = useRouter()
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setToken(token)
+        
+   
+
+    const imagemSelecionada = (event) => {
+        const fotoCarro = event.target.files[0];
+        setImagem(fotoCarro)
+    }
+    const cadastrarCarro = async () => {
+
+        try {
+            const carroData = await carApiService.post('/Carros', {
+
+                id,
+                nomeCarro,
+                marcaCarro,
+                modeloCarro,
+                precoCarro,
+                file: image
+            });
+            router.push('/')
+            setMostrarModal(false)
+            console.log('Carro cadastrado com sucesso ')
+            return carroData
+        } catch (error) {
+            console.log('nao foi possivel cadastrar carro. ' + error)
         }
-    }, []);
-
-    const exibirModal = () => {
-        setMostrarModal(true)
-    }
-    const cancelarEdicao = () => {
-        setMostrarModal(false)
-    }
-
-    const carroEditado = () => {
-        router.push('/')
-        setMostrarModal(false)
-
     }
 
     return (
         <div className="container-cadastro">
             <Header />
-            <InputPesquisa/>
+            <InputPesquisa />
             <div className="container-principal">
                 <span>Cadastrar Novo Veículo</span>
-
-
-                <div className='formulario-de cadastro'>
-                    <form>
+                <div >
+                    <form className='formulario-cadastro'>
                         <InputModal
                             label={'Nome '}
                             tipo="text"
                             texto="Nome"
                             aoAlterarValor={e => setNomeCarro(e.target.value)}
                             valor={nomeCarro}
-
                         />
                         <InputModal
                             label={'Marca'}
@@ -70,25 +77,27 @@ export default function CardCarro({ src, alt, marca, nome, preco, modelo }) {
                         />
                         <InputModal
                             label={'Preço'}
-                            tipo="text"
-                            texto="valor"
+                            tipo="Number"
+                            texto="Preço"
                             aoAlterarValor={e => setPrecoCarro(e.target.value)}
                             valor={precoCarro}
                         />
                         <div className='upload-foto'>
-                            <label htmlFor="foto">Foto:</label>
+                            <label htmlFor="foto">Foto</label>
+                            <span className="required">*</span>
                             <input
                                 type="file"
                                 id="foto"
                                 name="foto"
                                 accept="image/*"
+                                onChange={imagemSelecionada}
                             />
                         </div>
                     </form>
                 </div>
-                <div className='botoes' onClick={carroEditado} >
+                <div className='botoes' onClick={cadastrarCarro} >
                     <Botao
-                        texto={'Cadstrar Veículo'}
+                        texto={'Cadastrar Veículo'}
                     />
                 </div>
             </div>

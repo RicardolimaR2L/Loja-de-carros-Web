@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import InputPesquisa from '../../componentes/inputPesquisa'
 import logoCars from '../../public/imagens/logo-BuyCars.jpeg'
 import { useState, useEffect } from 'react'
+import UsuarioService from '../../services/UsuarioServices'
+
+const usuarioService = new UsuarioService();
 
 export default function Header() {
   const [nome, setNome] = useState();
@@ -14,11 +16,8 @@ export default function Header() {
     if (nomeSalvo) {
       setNome(nomeSalvo)
     }
-
   }, [])
   const router = useRouter()
-
-  
   const cadastrarCarro = () => {
     router.push('/cadastro')
   }
@@ -28,6 +27,15 @@ export default function Header() {
   const irparaHome = () => {
     router.push('/')
   }
+
+  const logout = async () => {
+
+    await usuarioService.logout()
+    router.push('/')
+
+  }
+
+
   return (
     <>
       <div className="header-container">
@@ -44,15 +52,14 @@ export default function Header() {
 
           </nav> :
             <ul>
-              <li>Sobre nós</li>
-              <li onClick={cadastrarCarro}>Cadastrar-Carros</li>
               <li className='nome-usuario'>{nome}</li>
+              <li onClick={cadastrarCarro}>Cadastrar-Carros</li>
+              <li onClick={logout}>Sair</li>
             </ul>
 
           }
 
         </div>
-      
       </div>
     </>
   )

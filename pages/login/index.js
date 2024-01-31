@@ -42,12 +42,11 @@ export default function Login() {
       router.push('/')
     } catch (e) {
       console.log(e)
-      alert('erro ao realizar o login. ' + e.response?.data?.erro);
+       alert('erro ao realizar o login. ' + e.response?.data?.erro);
     }
 
     setEstasubmetendo(false)
   }
-
 
 
 
