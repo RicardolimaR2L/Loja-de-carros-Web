@@ -29,9 +29,9 @@ export default function Header() {
   }
 
   const logout = async () => {
-
     await usuarioService.logout()
     router.push('/')
+    router.reload()
 
   }
 
