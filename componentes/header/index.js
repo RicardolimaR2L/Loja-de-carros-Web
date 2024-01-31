@@ -53,8 +53,8 @@ export default function Header() {
           </nav> :
             <ul>
               <li className='nome-usuario'>{nome}</li>
-              <li onClick={cadastrarCarro}>Cadastrar-Carros</li>
-              <li onClick={logout}>Sair</li>
+              <li onClick={cadastrarCarro} className='cadastrar'> Cadastrar-Carros</li>
+              <li onClick={logout} className='logout'>Sair</li>
             </ul>
 
           }

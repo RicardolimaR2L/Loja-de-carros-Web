@@ -8,7 +8,6 @@
 
   .logo-container  {
     width: 60px;
-    padding-left: 10px;
     margin-bottom: 15px;
     cursor: pointer;
     img{
@@ -19,7 +18,13 @@
 
   .navegacao-container {
     ul {
-      display: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content:center;
+      list-style: none;
+      width: 200px;
+      padding-right: 35px;
     }
 .nome-usuario{
   display: flex;
@@ -31,6 +36,14 @@
   border: 1px solid $corPrimaria1;
   border-radius: 10px;
   background-color: $branco;
+  margin-left: -50px;
+  margin-right: 5px;
+}
+.logout{
+margin-left: 10px;
+}
+.cadastrar{
+  margin-left: 1px;
 }
   }
 
@@ -44,13 +57,19 @@
     }
 
     .navegacao-container {
-      width: 30%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
       ul {
+        width: 300px;
         list-style-type: none;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         flex-direction: row;
+        
+       
         li {
           font-size: 16px;
           font-family: $fontRegular;
@@ -60,6 +79,7 @@
             color: $corPrimaria1;
           }
         }
+        
       }
     }
   }
