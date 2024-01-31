@@ -1,28 +1,6 @@
-import axios from 'axios'
+import ApiService from './ApiService'
 
-export default class CarApiService {
-  constructor() {
-    this.axios = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL + '/api'
-    })
-
-    this.quantidadeRequisicoes = 0
-    this.axios.interceptors.request.use(config => {
-      this.quantidadeRequisicoes++
-      if (this.quantidadeRequisicoes === 1) {
-      }
-      const token = localStorage.getItem('token')
-      if (token) {
-        config.headers.Authorization = 'Bearer ' + token
-      }
-      return config
-    })
-
-    this.axios.interceptors.response.use(response => {
-      return response
-    })
-  }
-
+export default class CarApiService extends ApiService {
   post(url, data) {
     const bodyFormData = new FormData();
     bodyFormData.append("id", data.id)

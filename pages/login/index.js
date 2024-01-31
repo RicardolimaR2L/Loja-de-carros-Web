@@ -12,7 +12,7 @@ import UsuarioService from '../../services/UsuarioServices'
 
 const usuarioService = new UsuarioService();
 
- const Login= () => {
+ const Login = () => {
   const [email, setEmail] = useState('')
   const [senha, setsenha] = useState('')
   const [estaSubmetendo, setEstasubmetendo] = useState(false)

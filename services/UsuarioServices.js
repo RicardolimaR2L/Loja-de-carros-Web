@@ -1,8 +1,8 @@
-import CarroApiService from './CarService'
+import ApiService from "./ApiService"
 
-export default class UsuarioService extends CarroApiService {
+export default class UsuarioService extends ApiService {
   async login(credenciais) {
-    const { data } = await this.post('/Login', credenciais)
+    const { data } = await this.axios.post('/Login', credenciais)
 
     localStorage.setItem('nome', data.nome)
     localStorage.setItem('email', data.email)
