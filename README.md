@@ -3,7 +3,7 @@
 ## Autor: Ricardo Lima de Lemos
 ## Sobre o Projeto
 
-Este projeto é o frontend de uma loja de carros online. Utilizei o conceito de mobile first, garantindo que todas as telas funcionem tanto em dispositivos móveis quanto em desktops, garantindo um layout responsivo.
+Este projeto é o frontend de uma loja de carros online. Utilizei o conceito de mobile first, garantindo que todas as telas funcionem tanto em dispositivos móveis quanto em desktops.
 
 
 ## Instruções de Uso
