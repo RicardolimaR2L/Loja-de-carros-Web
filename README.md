@@ -18,6 +18,10 @@ Para executar o projeto, siga os passos abaixo:
 6. Após seguir esses passos seu projeto já estará funcionando. 
 7. Acesse o projeto através da URL [http://localhost:3000](http://localhost:3000).
 
+## Login de admin
+- **Login**: Ricardo@admin.com
+- **Senha**: Escama@13
+
 
 # Tecnologias Utilizadas
 
