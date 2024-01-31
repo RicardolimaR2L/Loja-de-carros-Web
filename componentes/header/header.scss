@@ -17,6 +17,11 @@
   }
 
   .navegacao-container {
+    .menu-deslogado{
+      width: 50px;
+      display: flex;
+      gap: 25px;
+    }
     ul {
       display: flex;
       flex-direction: row;

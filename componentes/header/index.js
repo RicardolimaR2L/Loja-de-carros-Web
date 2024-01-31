@@ -43,10 +43,8 @@ export default function Header() {
           <Image src={logoCars} alt="logo do loja" />
         </div>
         <div className="navegacao-container">
-          {!nome ? <nav>
-            <ul>
-              <li>Sobre nós</li>
-              <li >Modelos</li>
+          {!nome ? <nav >
+            <ul className='menu-deslogado'>
               <li onClick={irParaLogin}>Login</li>
             </ul>
 
