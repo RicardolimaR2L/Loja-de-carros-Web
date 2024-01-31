@@ -9,7 +9,7 @@ import InputPesquisa from '../../componentes/inputPesquisa';
 const carApiService = new CarApiService();
 
 
-export default function Cadastro({  marca, nome, preco, modelo }) {
+ const Cadastro = ({  marca, nome, preco, modelo })=> {
 
     const [nomeCarro, setNomeCarro] = useState('')
     const [marcaCarro, setMarcaCarro] = useState('')
@@ -102,3 +102,5 @@ export default function Cadastro({  marca, nome, preco, modelo }) {
         </div>
     )
 }
+
+export default Cadastro;
