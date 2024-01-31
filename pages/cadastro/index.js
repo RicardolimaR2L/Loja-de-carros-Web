@@ -9,7 +9,7 @@ import InputPesquisa from '../../componentes/inputPesquisa';
 const carApiService = new CarApiService();
 
 
-export default function cadastro({ id, marca, nome, preco, modelo }) {
+export default function Cadastro({  marca, nome, preco, modelo }) {
 
     const [nomeCarro, setNomeCarro] = useState('')
     const [marcaCarro, setMarcaCarro] = useState('')
@@ -29,8 +29,6 @@ export default function cadastro({ id, marca, nome, preco, modelo }) {
 
         try {
             const carroData = await carApiService.post('/Carros', {
-
-                id,
                 nomeCarro,
                 marcaCarro,
                 modeloCarro,
