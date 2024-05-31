@@ -14,16 +14,14 @@ const usuarioService = new UsuarioService();
 
  const Login = () => {
   const [email, setEmail] = useState('')
-  const [senha, setsenha] = useState('')
+  const [password, setsenha] = useState('')
   const [estaSubmetendo, setEstasubmetendo] = useState(false)
   const router = useRouter()
-
- 
 
   const validarFormulario = () => {
     return (
       validarEmail(email)
-      && validarSenha(senha)
+      && validarSenha(password)
     );
   };
 
@@ -37,7 +35,7 @@ const usuarioService = new UsuarioService();
 
       await usuarioService.login({
         login: email,
-        senha
+      password
       })
       router.push('/')
     } catch (e) {
@@ -47,9 +45,6 @@ const usuarioService = new UsuarioService();
 
     setEstasubmetendo(false)
   }
-
-
-
   return (
     <section className={'login-container'}>
       <div className="logo-container">
@@ -69,7 +64,7 @@ const usuarioService = new UsuarioService();
             texto="Senha"
             tipo="password"
             aoAlterarValor={e => setsenha(e.target.value)}
-            valor={senha}
+            valor={password}
           />
           <div className="botao-container">
             <Botao

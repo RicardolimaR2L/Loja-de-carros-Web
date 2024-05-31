@@ -7,14 +7,14 @@ import UsuarioService from '../../services/UsuarioServices'
 const usuarioService = new UsuarioService();
 
 export default function Header() {
-  const [nome, setNome] = useState();
+  const [name, setName] = useState();
 
 
   useEffect(() => {
-    const nomeSalvo = localStorage.getItem('nome');
+    const nomeSalvo = localStorage.getItem('name');
 
     if (nomeSalvo) {
-      setNome(nomeSalvo)
+      setName(nomeSalvo)
     }
   }, [])
   const router = useRouter()
@@ -30,9 +30,9 @@ export default function Header() {
 
   const logout = async () => {
     await usuarioService.logout()
+    
     router.push('/')
     router.reload()
-
   }
 
 
@@ -43,15 +43,15 @@ export default function Header() {
           <Image src={logoCars} alt="logo do loja" />
         </div>
         <div className="navegacao-container">
-          {!nome ? <nav >
+          {!name ? <nav >
             <ul className='menu-deslogado'>
               <li onClick={irParaLogin}>Login</li>
             </ul>
 
           </nav> :
             <ul>
-              <li className='nome-usuario'>{nome}</li>
-              <li onClick={cadastrarCarro} className='cadastrar'> Cadastrar-Carros</li>
+              <li className='nome-usuario'>{name}</li>
+              <li onClick={cadastrarCarro} className='cadastrar'>Cadastrar-Veículo</li>
               <li onClick={logout} className='logout'>Sair</li>
             </ul>
 

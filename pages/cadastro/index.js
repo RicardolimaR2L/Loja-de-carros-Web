@@ -9,35 +9,32 @@ import InputPesquisa from '../../componentes/inputPesquisa';
 const carApiService = new CarApiService();
 
 
- const Cadastro = ({  marca, nome, preco, modelo })=> {
-
-    const [nomeCarro, setNomeCarro] = useState('')
-    const [marcaCarro, setMarcaCarro] = useState('')
-    const [modeloCarro, setModeloCarro] = useState('')
-    const [precoCarro, setPrecoCarro] = useState('')
-    const [image, setImagem] = useState('')
+ const Cadastro = ()=> {
+    const [name, setName] = useState('')
+    const [brand, setBrand] = useState('')
+    const [model, setModel] = useState('')
+    const [price, setPrice] = useState('')
+    const [image, setImage] = useState('')
 
     const router = useRouter()
-        
-   
-
     const imagemSelecionada = (event) => {
-        const fotoCarro = event.target.files[0];
-        setImagem(fotoCarro)
+        const photo = event.target.files[0];
+        setImage(photo)
     }
     const cadastrarCarro = async () => {
 
         try {
-            const carroData = await carApiService.post('/Carros', {
-                nomeCarro,
-                marcaCarro,
-                modeloCarro,
-                precoCarro,
+            const carroData = await carApiService.post('cars/Cars', {
+                name,
+                brand,
+                model,
+                price,
                 file: image
             });
             router.push('/')
             setMostrarModal(false)
             console.log('Carro cadastrado com sucesso ')
+            console.log(carroData)
             return carroData
         } catch (error) {
             console.log('nao foi possivel cadastrar carro. ' + error)
@@ -56,29 +53,29 @@ const carApiService = new CarApiService();
                             label={'Nome '}
                             tipo="text"
                             texto="Nome"
-                            aoAlterarValor={e => setNomeCarro(e.target.value)}
-                            valor={nomeCarro}
+                            aoAlterarValor={e => setName(e.target.value)}
+                            valor={name}
                         />
                         <InputModal
                             label={'Marca'}
                             tipo="text"
                             texto="Marca"
-                            valor={marcaCarro}
-                            aoAlterarValor={e => setMarcaCarro(e.target.value)}
+                            valor={brand}
+                            aoAlterarValor={e => setBrand(e.target.value)}
                         />
                         <InputModal
                             label={'Modelo '}
                             tipo="text"
                             texto="Modelo"
-                            aoAlterarValor={e => setModeloCarro(e.target.value)}
-                            valor={modeloCarro}
+                            aoAlterarValor={e => setModel(e.target.value)}
+                            valor={model}
                         />
                         <InputModal
                             label={'Preço'}
                             tipo="Number"
                             texto="Preço"
-                            aoAlterarValor={e => setPrecoCarro(e.target.value)}
-                            valor={precoCarro}
+                            aoAlterarValor={e => setPrice(e.target.value)}
+                            valor={price}
                         />
                         <div className='upload-foto'>
                             <label htmlFor="foto">Foto</label>
@@ -95,7 +92,7 @@ const carApiService = new CarApiService();
                 </div>
                 <div className='botoes' onClick={cadastrarCarro} >
                     <Botao
-                        texto={'Cadastrar Veículo'}
+                        texto={'Cadastrar'}
                     />
                 </div>
             </div>

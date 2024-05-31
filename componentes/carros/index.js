@@ -13,8 +13,6 @@ export default function Carros({ carro }) {
     }
 
   }, [carro]);
-
-
   return (
     <div className="container-carros">
       <div className="grid-carros">
@@ -23,15 +21,16 @@ export default function Carros({ carro }) {
             id={carro._id}
             key={index}
             className="item-carro"
-            src={carro.foto}
+            src={carro.photo}
             altText={'card Carro'}
-            marca={carro.marca}
-            nome={carro.nome}
-            modelo={carro.modelo}
-            preco={carro.preco}
+            marca={carro.brand}
+            nome={carro.name}
+            modelo={carro.model}
+            preco={carro.price}
           />
         ))}
       </div>
     </div>
   );
 }
+

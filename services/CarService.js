@@ -5,10 +5,10 @@ export default class CarApiService extends ApiService {
     const bodyFormData = new FormData();
     bodyFormData.append("id", data.id)
     bodyFormData.append("file", data.file)
-    bodyFormData.append("nome", data.nomeCarro)
-    bodyFormData.append("marca", data.marcaCarro)
-    bodyFormData.append("modelo", data.modeloCarro)
-    bodyFormData.append("preco", data.precoCarro)
+    bodyFormData.append("name", data.name)
+    bodyFormData.append("brand", data.brand)
+    bodyFormData.append("model", data.model)
+    bodyFormData.append("price", data.price)
     return this.axios.post(url, bodyFormData, {
 
       headers: { 'content-type': 'multipart/form-data' }
@@ -24,10 +24,10 @@ export default class CarApiService extends ApiService {
     const bodyFormData = new FormData();
     bodyFormData.append("id", data.id)
     bodyFormData.append("file", data.file)
-    bodyFormData.append("nome", data.nomeCarro)
-    bodyFormData.append("marca", data.marcaCarro)
-    bodyFormData.append("modelo", data.modeloCarro)
-    bodyFormData.append("preco", data.precoCarro)
+    bodyFormData.append("name", data.name)
+    bodyFormData.append("brand", data.brand)
+    bodyFormData.append("model", data.model)
+    bodyFormData.append("price", data.price)
     return this.axios.put(url, bodyFormData, {
 
       headers: { 'content-type': 'multipart/form-data' }
