@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 import CardCarro from '../cardCarro';
 
-export default function Carros({ carro }) {
+export default function Carros({ carros }) {
   const [carrosOrdenados, setCarrosOrdenados] = useState([]);
 
   useEffect(() => {
-    if (carro && carro.data) {
-      const listaDeCarros = [...carro.data];
-      listaDeCarros.sort((a, b) => a.preco - b.preco);
+    if (carros) {
+      const listaDeCarros = [...carros];
+      listaDeCarros.sort((a, b) => a.price - b.price);
       setCarrosOrdenados(listaDeCarros);
-   
     }
+  }, [carros]);
 
-  }, [carro]);
   return (
     <div className="container-carros">
       <div className="grid-carros">
@@ -33,4 +32,3 @@ export default function Carros({ carro }) {
     </div>
   );
 }
-
