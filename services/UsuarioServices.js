@@ -6,12 +6,18 @@ export default class UsuarioService extends ApiService {
 
     localStorage.setItem('name', data.name)
     localStorage.setItem('email', data.email)
-    localStorage.setItem('token', data.token) 
-  } 
+    localStorage.setItem('token', data.token)
+  }
 
-  async logout(){
+  async logout() {
     localStorage.removeItem('name')
     localStorage.removeItem('email')
     localStorage.removeItem('token')
   }
+
+
+  async pesquisar(termoDaPesquisa) {
+    return await this.axios.get('/cars/SearchPublicCars?filter=' + termoDaPesquisa);
+
   }
+}
