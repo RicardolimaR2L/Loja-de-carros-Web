@@ -1,21 +1,32 @@
 .inputPesquisa-container {
   width: 100%;
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $corPrimaria1;
   border-radius: 5px;
+  margin-bottom: 25px;
+  position: relative;
+  
   input {
-    width: 80vw;
+    width: 85vw;
     height: 30px;
     border: none;
     outline: none;
     border-radius: 5px;
     color: $corPrimaria2;
+    margin-left: 5px;
+    margin-top: 10px;
+
   }
+  .botao-limpar{
+    display: none;
+    }
+  
   .icone-pesquisa {
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
     cursor: pointer;
   }
   @media screen and (min-width: $desktopBreakpoint) {
@@ -23,11 +34,14 @@
       height: 45px;
       width: 80vw;
     }
-    .icone-pesquisa {
-      margin-left: 20px;
-      width: 35px;
-      height: 35px;
+    .botao-limpar{
+      background-color:#ffff;
+      color:  $corPrimaria1;
+      border: 1px solid #ffff;
+      border-radius: 5px;
+      margin-left: 5px;
       cursor: pointer;
+      }
     }
   }
-}
+
