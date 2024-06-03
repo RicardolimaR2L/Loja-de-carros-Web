@@ -17,46 +17,48 @@ export default function Header() {
       setName(nomeSalvo)
     }
   }, [])
+
   const router = useRouter()
+
+
   const cadastrarCarro = () => {
     router.push('/cadastro')
   }
   const irParaLogin = () => {
     router.push('/login')
   }
-  const irparaHome = () => {
+  const irParaHome = () => {
     router.push('/')
-  }
+    if (router.push('/')) {
 
+    }
+  }
   const logout = async () => {
     await usuarioService.logout()
-    
-    router.push('/');
-
+    router.push('/')
+    router.reload()
   }
-
 
   return (
     <>
       <div className="header-container">
-        <div className="logo-container" onClick={irparaHome}>
+        <div className="logo-container" onClick={irParaHome}>
           <Image src={logoCars} alt="logo do loja" />
         </div>
         <div className="navegacao-container">
           {!name ? <nav >
             <ul className='menu-deslogado'>
               <li onClick={irParaLogin}>Login</li>
+              <li onClick={irParaHome} className='cadastrar'>Home</li>
             </ul>
-
           </nav> :
             <ul>
               <li className='nome-usuario'>{name}</li>
-              <li onClick={cadastrarCarro} className='cadastrar'>Cadastrar-Veículo</li>
+              <li onClick={irParaHome} className='cadastrar'>Home</li>
+              <li onClick={cadastrarCarro} className='cadastrar'>Cadastrar</li>
               <li onClick={logout} className='logout'>Sair</li>
             </ul>
-
           }
-
         </div>
       </div>
     </>

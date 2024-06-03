@@ -4,53 +4,58 @@
   justify-content: space-between;
   width: 100%;
   margin-top: 10px;
-  background-color: white;
 
-  .logo-container  {
+  .logo-container {
     width: 60px;
     margin-bottom: 15px;
     cursor: pointer;
-    img{
+
+    img {
       width: 70px;
       height: 50px;
     }
   }
 
   .navegacao-container {
-    .menu-deslogado{
+    .menu-deslogado {
       width: 50px;
       display: flex;
-      gap: 25px;
+      gap: 10px;
+      margin-right: 45px;
     }
+
     ul {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content:center;
+      justify-content: center;
       list-style: none;
       width: 200px;
       padding-right: 35px;
     }
-.nome-usuario{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $corPrimaria1;
-  width: 70px;
-  height: 30px;
-  border: 1px solid $corPrimaria1;
-  border-radius: 10px;
-  background-color: $branco;
-  margin-left: -50px;
-  margin-right: 5px;
-}
-.logout{
-margin-left: 10px;
-}
-.cadastrar{
-  margin-left: 1px;
- 
-}
+
+    .nome-usuario {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $corPrimaria1;
+      width: 70px;
+      height: 30px;
+      border: 1px solid $corPrimaria1;
+      border-radius: 10px;
+      background-color: $branco;
+      margin-left: -50px;
+      margin-right: 5px;
+    }
+
+    .logout {
+      margin-left: 10px;
+    }
+
+    .cadastrar {
+      margin-left: 10px;
+
+    }
   }
 
   @media screen and (min-width: $desktopBreakpoint) {
@@ -67,6 +72,7 @@ margin-left: 10px;
       display: flex;
       align-items: center;
       flex-direction: row;
+
       ul {
         width: 300px;
         list-style-type: none;
@@ -74,18 +80,19 @@ margin-left: 10px;
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
-        
-       
+
+
         li {
           font-size: 16px;
           font-family: $fontRegular;
           cursor: pointer;
           color: $corPrimaria2;
+
           &:hover {
             color: $corPrimaria1;
           }
         }
-        
+
       }
     }
   }
