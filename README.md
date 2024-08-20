@@ -19,7 +19,7 @@ Para executar o projeto, siga os passos abaixo:
 
 ## Login de admin
 - **Login**: Ricardo@admin.com
-- **Senha**: Escama@13
+- **Senha**: 12345678
 
 ## Tecnologias Utilizadas
 
